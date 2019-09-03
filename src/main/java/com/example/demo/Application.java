@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
  * 服务启动类
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @version <b>1.0.0</b>
  * @date 2019/8/12 09:50
  */
-@EnableWebMvc
 @EnableTransactionManagement
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {

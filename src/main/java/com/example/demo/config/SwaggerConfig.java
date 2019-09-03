@@ -3,7 +3,7 @@ package com.example.demo.config;
 import com.example.demo.base.NonProdEnvCondition;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,14 +20,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @Conditional(NonProdEnvCondition.class)
-public class SwaggerConfig extends WebMvcConfigurationSupport {
+public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     @Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+//        registry.addResourceHandler("webjars/**")
+//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     @Bean
