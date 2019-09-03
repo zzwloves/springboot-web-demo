@@ -15,7 +15,7 @@
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_PATH}/rolling.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>rolling.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_PATH}/rolling.%d{yyyy-MM-dd}.log</fileNamePattern>
         </rollingPolicy>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} -%5p [%5.30t] %-40.40logger{39} : %m%n</pattern>
