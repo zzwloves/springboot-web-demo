@@ -126,9 +126,9 @@ public class GlobalExceptionHandler {
 
 
     @ResponseBody
-    @ExceptionHandler(Exception.class)
-    public ResponseResult handleUnknownException(Exception e) {
-        log.info("发生系统未知异常！", e);
+    @ExceptionHandler(Throwable.class)
+    public ResponseResult handleUnknownException(Throwable t) {
+        log.info("发生系统未知异常！", t);
         ResponseResult result = new ResponseResult();
         result.setCode(ExceptionEnum.SYSTEM_ERROR.getCode());
         result.setMsg(ExceptionEnum.SYSTEM_ERROR.getMsg());

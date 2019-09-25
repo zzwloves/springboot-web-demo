@@ -10,7 +10,7 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
  * @version <b>1.0.0</b>
  * @date 2019/9/2 16:45
  */
-public class NonProdEnvCondition implements Condition {
+public class OnNotProdEnvCondition implements Condition {
 
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {

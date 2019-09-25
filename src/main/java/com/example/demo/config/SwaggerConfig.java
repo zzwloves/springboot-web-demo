@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.base.NonProdEnvCondition;
+import com.example.demo.base.ConditionalOnNotProdEnv;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@Conditional(NonProdEnvCondition.class)
+@ConditionalOnNotProdEnv
 public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     @Override

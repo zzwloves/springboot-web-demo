@@ -3,13 +3,12 @@ package com.example.demo.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
-import com.example.demo.base.NonProdEnvCondition;
+import com.example.demo.base.ConditionalOnNotProdEnv;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
@@ -64,7 +63,7 @@ public class DataBaseConfig {
      * @return: ServletRegistrationBean
      */
     @Bean
-    @Conditional(NonProdEnvCondition.class)
+    @ConditionalOnNotProdEnv
     public ServletRegistrationBean druidServlet() {
         ServletRegistrationBean reg = new ServletRegistrationBean();
         reg.setServlet(new StatViewServlet());
@@ -87,7 +86,7 @@ public class DataBaseConfig {
      * 注册一个：filterRegistrationBean 相当于在web.xml中声明了一个Filter   
      */
     @Bean
-    @Conditional(NonProdEnvCondition.class)
+    @ConditionalOnNotProdEnv
     public FilterRegistrationBean druidStatFilter() {
         FilterRegistrationBean druidStatFilter = new FilterRegistrationBean();
         druidStatFilter.setFilter(new WebStatFilter());
