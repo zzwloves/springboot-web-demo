@@ -1,5 +1,7 @@
 package com.example.demo.base;
 
+import javax.validation.groups.Default;
+
 /**
  * @author zhuzw
  * @version <b>1.0.0</b>
@@ -7,15 +9,9 @@ package com.example.demo.base;
  */
 public interface Group {
 
-    interface Get {
-    }
+    interface Add extends Default {}
 
-    interface Post {
-    }
+    interface Delete extends Default {}
 
-    interface Delete {
-    }
-
-    interface Put {
-    }
+    interface Update extends Default {}
 }

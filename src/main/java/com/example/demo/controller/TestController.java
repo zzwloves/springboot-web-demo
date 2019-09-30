@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.base.Group;
+import com.example.demo.dto.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +32,7 @@ public class TestController {
 
     @ApiOperation(value = "post测试接口")
     @PostMapping("test")
-    public String post(@Validated(Group.Post.class) @RequestBody User user) {
+    public String post(@Validated(Group.Add.class) @RequestBody UserDTO user) {
         userService.getByToken(null);
         return "success";
     }

@@ -11,9 +11,6 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Data
 public class User {
-    @NotBlank(message = "id不能为空", groups = {Group.Post.class, Group.Put.class, Group.Delete.class})
     private String id;
-
-    @NotBlank(message = "name不能为空", groups = Group.Post.class)
     private String userName;
 }
